@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-security-thymeleaf
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Anthony
+Implementation-Vendor-Id: spring-security-thymeleaf
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-security-thymeleaf
+Created-By: Maven Integration for Eclipse
+

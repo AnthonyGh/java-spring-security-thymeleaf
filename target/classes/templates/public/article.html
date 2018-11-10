@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+	
+	<h1 th:text="${article.title}"></h1>
+	
+	<p th:utext="${article.content}"></p>
+	<div sec:authorize="!isAuthenticated()">
+  		<p>Je ne suis même pas identifier</p>
+	</div>
+	
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<p>Je peux te modifier</p>
+	</div>
+	
+	<div sec:authorize="hasRole('ROLE_USER')">
+		<p>Je ne peux pas te modifier</p>
+	</div>
+	
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

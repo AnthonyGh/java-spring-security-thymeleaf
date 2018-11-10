@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Spring Boot Thymeleaf + Spring Security</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Admin page (Spring Security protected)</h1>
+		
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        
+       <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th><th>Titre</th><th>description</th><th>date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e:${articles}">
+					<td th:text="${e.id}"></td>
+					<td th:text="${e.title}"></td>
+					<td th:text="${e.description}"></td>
+					<td th:text="${e.dateCreate}"></td>
+					<td><a onclick="return confirm('Confirmer la suppression ?')" th:href="@{supprimer(id=${e.id})}">Supprimer</a></td>
+					<td><a th:href="@{editer(id=${e.id})}">Editer</a></td>
+				</tr>
+			</tbody>
+		</table>
+        
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+		
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

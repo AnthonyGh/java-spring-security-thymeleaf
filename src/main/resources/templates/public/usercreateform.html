@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Spring Boot Thymeleaf + Spring Security</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Formulaire d'Enregistrementn</h1>
+    </div>
+
+
+	<form action="#" th:action="@{/saveUser}" th:object="${user}" method="post">
+    	<p>Nom: <input type="text" th:field="*{name}" /></p>
+    	<p>Mot de passe: <input type="text" th:field="*{password}" /></p>
+       
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+	
+	
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
